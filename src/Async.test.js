@@ -3,6 +3,12 @@ import Async from "./Async";
 
 describe('Async Component', ()=> {
     test('render post if request succeeds', async ()=>{
+        window.fetch= jest.fn();
+        window.fetch.mockResolvedValueOnce({
+            json: async () => 
+                [{'id': 'p1', title:'First Post'},{'id': 'p2', title:'Second Post'}]
+            
+        })
         render(<Async />)
         const listItemElements = await screen.findAllByRole('listitem');
         expect(listItemElements).not.toHaveLength(0);
