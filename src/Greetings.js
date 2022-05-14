@@ -1,5 +1,6 @@
 import { Fragment } from "react"
 import { useState } from "react";
+import Output from "./Output";
 
 const Greetings = () => {
 
@@ -11,8 +12,8 @@ const Greetings = () => {
     return (
         <div>
             <h2>Hello World</h2>
-            {!changedText && <p>This is default text</p> }
-            {changedText && <p>Text is changed !!</p>}
+            {!changedText && <Output>This is default text</Output> }
+            {changedText && <Output>Text is changed !!</Output>}
             <p>This is a demo testing project</p>
             <button onClick={onClickHandler}>Change Text</button>
         </div>
